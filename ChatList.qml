@@ -14,28 +14,41 @@ Rectangle {
 Item {
     Component {
         id: chatDelegate
-        required property string name
 
         Item {
+            required property string textRole
+            required property string colorRole
+            required property int index
+
             width: listView.width; height: 40
+
             Column {
                 anchors.fill: parent
-                Text { text: '<b>Name:</b> ' + name }
-                Text { text: '<b----</b>' }
+                Text { text: '<b>Name:</b>' + textRole}
+                Text { text: '<b>Last msg:</b>' + colorRole}
                 Rectangle {
                     color: "red"
                     height: 10
                     width: parent.width
                 }
+
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    console.log("clicked index: " + index)
+                }
             }
         }
     }
+
 
     ListView {
         id: listView
 
         anchors.fill: parent
-        model: ChatsModel {}
+        model: testModel
         delegate: chatDelegate
         highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }
         focus: true

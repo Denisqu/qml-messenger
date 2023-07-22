@@ -20,8 +20,8 @@ public:
     virtual int rowCount(const QModelIndex &parent) const override;
     virtual QVariant data(const QModelIndex &index, int role) const override;
     virtual QHash<int, QByteArray> roleNames() const override;
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role);
-    virtual Qt::ItemFlags flags(const QModelIndex &index) const;
+    virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     Q_INVOKABLE void add();
 

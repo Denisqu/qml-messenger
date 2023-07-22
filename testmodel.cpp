@@ -4,8 +4,9 @@ TestModel::TestModel(QObject *parent):
     QAbstractListModel(parent),
     m_data()
 {
-    m_data.append("old");
-    m_data.append("another old");
+    m_data.append("size");
+    this->add();
+    this->add();
 }
 
 int TestModel::rowCount(const QModelIndex &parent) const
@@ -36,8 +37,8 @@ QVariant TestModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> TestModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles[ColorRole] = "color";
-    roles[TextRole] = "text";
+    roles[ColorRole] = "colorRole";
+    roles[TextRole] = "textRole";
 
     return roles;
 }
