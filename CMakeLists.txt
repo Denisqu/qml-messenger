@@ -17,7 +17,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
-        testmodel.h testmodel.cpp
+        chatsmodel.h chatsmodel.cpp
+        chatmodel.h chatmodel.cpp
+        message.h message.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -55,7 +57,6 @@ set_target_properties(qml-messenger PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
-
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_import_qml_plugins(qml-messenger)

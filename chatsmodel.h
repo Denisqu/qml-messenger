@@ -1,21 +1,23 @@
-#ifndef TESTMODEL_H
-#define TESTMODEL_H
+#ifndef CHATSMODEL_H
+#define CHATSMODEL_H
 
 #include "qobjectdefs.h"
 #include <QAbstractListModel>
 #include <QStringList>
 
-class TestModel : public QAbstractListModel
+class ChatModel;
+
+class ChatsModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
     enum Roles {
-        ColorRole = Qt::UserRole + 1,
-        TextRole
+        ChatNameRole = Qt::UserRole + 1,
+        LastMsgRole
     };
 
-    TestModel(QObject *parent = 0);
+    ChatsModel(QObject *parent = 0);
 
     virtual int rowCount(const QModelIndex &parent) const override;
     virtual QVariant data(const QModelIndex &index, int role) const override;
@@ -24,10 +26,12 @@ public:
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     Q_INVOKABLE void add();
+    Q_INVOKABLE void addChat(ChatModel chat);
 
 private:
-    QStringList m_data;
+    // Здесь хранить лист моделей или сделать как-то по-другому???
+    QList<ChatModel> mChats;
 };
 
 
-#endif // TESTMODEL_H
+#endif // CHATSMODEL_H
