@@ -1,11 +1,16 @@
 #include "chatmodel.h"
 #include "message.h"
 
-ChatModel::ChatModel(QString chatName, QObject *parent)
+ChatModel::ChatModel(const QString& chatName, QObject *parent)
     : QAbstractListModel{parent},
       mChatName(chatName),
       mMessages{}
 {}
+
+const QString &ChatModel::chatName() const
+{
+    return mChatName;
+}
 
 int ChatModel::rowCount(const QModelIndex &parent) const
 {

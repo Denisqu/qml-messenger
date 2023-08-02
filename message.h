@@ -4,12 +4,17 @@
 #include <QObject>
 #include <QDate>
 
+/*
+ * TODO: Понять должен ли Message быть QObject'ом или нет
+ */
+
 class Message : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString author READ author WRITE setAuthor NOTIFY authorChanged)
     Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
     Q_PROPERTY(QDate date READ date WRITE setDate NOTIFY dateChanged)
+
 
 public:
     explicit Message(QString author, QString text, QDate date, QObject *parent = nullptr);
@@ -30,5 +35,7 @@ signals:
     void textChanged();
     void dateChanged();
 };
+
+Q_DECLARE_METATYPE(Message);
 
 #endif // MESSAGE_H

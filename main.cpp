@@ -2,8 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "chatsmodel.h"
-#include "chat.h"
-#include "message.h"
+//#include "message.h"
 
 // 1) Добавить модель из C++ в qml:
 // https://doc.qt.io/qt-5/qtquick-modelviewsdata-cppmodels.html
@@ -23,10 +22,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     // expose C++ objects to Qml:
-    ChatsModel *testModel = new ChatsModel(&app);
-    engine.rootContext()->setContextProperty("testModel", testModel);
-    qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
-    qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
+    ChatsModel *chatsModel = new ChatsModel(&app);
+    engine.rootContext()->setContextProperty("chatsModel", chatsModel);
+    //qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
+    //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

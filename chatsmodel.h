@@ -26,11 +26,11 @@ public:
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     Q_INVOKABLE void add();
-    Q_INVOKABLE void addChat(ChatModel chat);
+    Q_INVOKABLE void addChat(const ChatModel&& chat);
 
 private:
     // Здесь хранить лист моделей или сделать как-то по-другому???
-    QList<ChatModel> mChats;
+    QList<ChatModel> mChatModels;
 };
 
 

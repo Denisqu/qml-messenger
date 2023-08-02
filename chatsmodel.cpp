@@ -3,12 +3,8 @@
 
 ChatsModel::ChatsModel(QObject *parent):
     QAbstractListModel(parent),
-    m_data()
-{
-    m_data.append("size");
-    this->add();
-    this->add();
-}
+    mChatModels()
+{}
 
 int ChatsModel::rowCount(const QModelIndex &parent) const
 {
@@ -16,7 +12,7 @@ int ChatsModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return m_data.size();
+    return mChatModels.size();
 }
 
 QVariant ChatsModel::data(const QModelIndex &index, int role) const
@@ -26,10 +22,10 @@ QVariant ChatsModel::data(const QModelIndex &index, int role) const
     }
 
     switch (role) {
-    case NameRole:
-        return mChats.at(index.row());
+    case ChatNameRole:
+        return mChatModels.at(index.row()).chatName();
     case LastMsgRole:
-        return mChats.at(index.row()).messages();
+        return mChatModels.at(index.row()).lastMessage();
     default:
         return QVariant();
     }
@@ -38,9 +34,8 @@ QVariant ChatsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> ChatsModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles[MessagesRole] = "messagesRole";
+    roles[ChatNameRole] = "chatNameRole";
     roles[LastMsgRole] = "lastMsgRole";
-    roles[NameRole] = "nameRole";
 
     return roles;
 }
@@ -58,10 +53,11 @@ void ChatsModel::add()
     */
 }
 
-void ChatsModel::addChat(ChatModel chat)
+void ChatsModel::addChat(const ChatModel&& chat)
 {
-    beginInsertRows(QModelIndex(), mChats.size(), mChats.size());
-
+    beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size());
+    mChatModels.append(chat);
+    endInsertRows();
 }
 
 bool ChatsModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -71,19 +67,15 @@ bool ChatsModel::setData(const QModelIndex &index, const QVariant &value, int ro
     }
 
     switch (role) {
-    case NameRole:
-        return false;   // This property can not be set
+    case ChatNameRole:
+        return false;
     case LastMsgRole:
-        m_data[index.row()] = value.toString();
-        break;
-    case MessagesRole:
-
+        return false;
     default:
         return false;
     }
 
     emit dataChanged(index, index, QVector<int>() << role);
-
     return true;
 }
 
