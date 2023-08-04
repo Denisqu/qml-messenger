@@ -8,32 +8,37 @@
  * TODO: Понять должен ли Message быть QObject'ом или нет
  */
 
-class Message : public QObject
+class Message
 {
-    Q_OBJECT
-    Q_PROPERTY(QString author READ author WRITE setAuthor NOTIFY authorChanged)
-    Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
-    Q_PROPERTY(QDate date READ date WRITE setDate NOTIFY dateChanged)
-
-
 public:
-    explicit Message(QString author, QString text, QDate date, QObject *parent = nullptr);
+    explicit Message(QString author, QString text, QDate date);
+    explicit Message() = default;
+    ~Message() = default;
+    Message(const Message &) = default;
+    Message &operator=(const Message &) = default;
+
     const QString &author() const;
-    void setAuthor(const QString &newAuthor);
     const QString &text() const;
-    void setText(const QString &newText);
     const QDate &date() const;
+
+    /*
+    void setAuthor(const QString &newAuthor);
+    void setText(const QString &newText);
     void setDate(const QDate &newDate);
+    */
+
 
 private:
     QString mAuthor;
     QString mText;
     QDate mDate;
 
+/*
 signals:
     void authorChanged();
     void textChanged();
     void dateChanged();
+*/
 };
 
 Q_DECLARE_METATYPE(Message);

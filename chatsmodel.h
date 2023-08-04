@@ -25,8 +25,8 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    Q_INVOKABLE void add();
-    Q_INVOKABLE void addChat(const ChatModel&& chat);
+    // Q_INVOKABLE void add();
+    // Q_INVOKABLE void addChat(const ChatModel&& chat);
 
 private:
     // Здесь хранить лист моделей или сделать как-то по-другому???

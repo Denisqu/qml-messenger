@@ -10,7 +10,12 @@
 // https://scythe-studio.com/en/blog/how-to-integrate-qml-and-c-expose-object-and-register-c-class-to-qml
 // 2) Добавить выбор чата через модель (selectionModel)
 // 3) Добавить отображение чата
-// 23.07.23: Нужно создать модель чата (-) и модель чатов (-)
+
+// 23.07.23: Нужно создать модель чата (+) и модель чатов (+)
+
+// 04.08.23:
+// 1) Изменить message.h, чтобы он подходил под https://doc.qt.io/qt-5/qtqml-cppintegration-topic.html
+// 2)Отобразить данные в qml с помощью новых моделей
 
 int main(int argc, char *argv[])
 {

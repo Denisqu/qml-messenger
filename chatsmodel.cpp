@@ -1,5 +1,6 @@
 #include "chatsmodel.h"
 #include "chatmodel.h"
+#include "message.h"
 
 ChatsModel::ChatsModel(QObject *parent):
     QAbstractListModel(parent),
@@ -25,7 +26,11 @@ QVariant ChatsModel::data(const QModelIndex &index, int role) const
     case ChatNameRole:
         return mChatModels.at(index.row()).chatName();
     case LastMsgRole:
-        return mChatModels.at(index.row()).lastMessage();
+    {
+        auto lastMsg = QVariant();
+        lastMsg.setValue(mChatModels.at(index.row()).lastMessage());
+        return lastMsg;
+    }
     default:
         return QVariant();
     }
@@ -40,9 +45,9 @@ QHash<int, QByteArray> ChatsModel::roleNames() const
     return roles;
 }
 
+/*
 void ChatsModel::add()
 {
-    /*
     beginInsertRows(QModelIndex(), m_data.size(), m_data.size());
     m_data.append("new");
     endInsertRows();
@@ -50,7 +55,6 @@ void ChatsModel::add()
     m_data[0] = QString("Size: %1").arg(m_data.size());
     QModelIndex index = createIndex(0, 0, static_cast<void *>(0));
     emit dataChanged(index, index);
-    */
 }
 
 void ChatsModel::addChat(const ChatModel&& chat)
@@ -59,6 +63,7 @@ void ChatsModel::addChat(const ChatModel&& chat)
     mChatModels.append(chat);
     endInsertRows();
 }
+*/
 
 bool ChatsModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
