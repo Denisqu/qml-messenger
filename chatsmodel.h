@@ -12,9 +12,12 @@ class ChatsModel : public QAbstractListModel
     Q_OBJECT
 
 public:
+    // TODO: реализовать недостающие роли
     enum Roles {
         ChatNameRole = Qt::UserRole + 1,
-        LastMsgRole
+        LastMsgAuthorRole,
+        LastMsgTextRole,
+        LastMsgDateRole
     };
 
     ChatsModel(QObject *parent = 0);
@@ -25,12 +28,14 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
+    void fillModelWithTestData();
+
     // Q_INVOKABLE void add();
     // Q_INVOKABLE void addChat(const ChatModel&& chat);
 
 private:
-    // Здесь хранить лист моделей или сделать как-то по-другому???
-    QList<ChatModel> mChatModels;
+    // TODO: Здесь хранить лист моделей или сделать как-то по-другому???
+    QVector<ChatModel*> mChatModels;
 };
 
 

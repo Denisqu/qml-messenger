@@ -21,11 +21,11 @@ public:
     const QString &text() const;
     const QDate &date() const;
 
-    /*
+
     void setAuthor(const QString &newAuthor);
     void setText(const QString &newText);
     void setDate(const QDate &newDate);
-    */
+
 
 
 private:
@@ -33,12 +33,12 @@ private:
     QString mText;
     QDate mDate;
 
-/*
+
 signals:
     void authorChanged();
     void textChanged();
     void dateChanged();
-*/
+
 };
 
 Q_DECLARE_METATYPE(Message);

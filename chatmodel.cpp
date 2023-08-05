@@ -12,6 +12,19 @@ const QString &ChatModel::chatName() const
     return mChatName;
 }
 
+const Message &ChatModel::lastMessage() const
+{
+    return mMessages.constLast();
+}
+
+void ChatModel::addMessage(const Message &&msg)
+{
+    // TODO: правильно ли здесь всё сделано? Не будет ли утечки памяти?
+    // TODO: написать позже beginInsertRows
+    mMessages.push_back(msg);
+    // написать позже endInsertRows
+}
+
 int ChatModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {

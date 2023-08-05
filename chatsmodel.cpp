@@ -24,13 +24,13 @@ QVariant ChatsModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case ChatNameRole:
-        return mChatModels.at(index.row()).chatName();
-    case LastMsgRole:
-    {
-        auto lastMsg = QVariant();
-        lastMsg.setValue(mChatModels.at(index.row()).lastMessage());
-        return lastMsg;
-    }
+        return mChatModels.at(index.row())->chatName();
+    case LastMsgAuthorRole:
+        return mChatModels.at(index.row())->lastMessage().author();
+    case LastMsgTextRole:
+        return mChatModels.at(index.row())->lastMessage().text();
+    case LastMsgDateRole:
+        return mChatModels.at(index.row())->lastMessage().date();
     default:
         return QVariant();
     }
@@ -40,7 +40,9 @@ QHash<int, QByteArray> ChatsModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
     roles[ChatNameRole] = "chatNameRole";
-    roles[LastMsgRole] = "lastMsgRole";
+    roles[LastMsgAuthorRole] = "lastMsgAuthorRole";
+    roles[LastMsgTextRole] = "lastMsgTextRole";
+    roles[LastMsgDateRole] = "lastMsgDateRole";
 
     return roles;
 }
@@ -74,7 +76,11 @@ bool ChatsModel::setData(const QModelIndex &index, const QVariant &value, int ro
     switch (role) {
     case ChatNameRole:
         return false;
-    case LastMsgRole:
+    case LastMsgAuthorRole:
+        return false;
+    case LastMsgTextRole:
+        return false;
+    case LastMsgDateRole:
         return false;
     default:
         return false;
@@ -90,4 +96,15 @@ Qt::ItemFlags ChatsModel::flags(const QModelIndex &index) const
         return Qt::ItemIsEnabled;
 
     return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
+}
+
+void ChatsModel::fillModelWithTestData()
+{
+    beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size() + 2);
+    for (int i = 1; i < 4; ++i) {
+        auto testModel = new ChatModel(QString("testChatModel#%1").arg(i));
+        testModel->addMessage(Message("Author", "MessageText", QDate(2023, i, 18)));
+        mChatModels.push_back(testModel);
+    }
+    endInsertRows();
 }

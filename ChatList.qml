@@ -16,16 +16,21 @@ Item {
         id: chatDelegate
 
         Item {
-            required property string textRole
-            required property string colorRole
+            required property string chatNameRole
+            required property string lastMsgTextRole
+            required property date lastMsgDateRole
+            required property string lastMsgAuthorRole
             required property int index
 
-            width: listView.width; height: 40
+            width: listView.width; height: childrenRect.height
 
             Column {
-                anchors.fill: parent
-                Text { text: '<b>Name:</b>' + textRole}
-                Text { text: '<b>Last msg:</b>' + colorRole}
+                //anchors.fill: parent
+                height: childrenRect.height
+                Text { text: '<b>chatNameRole:</b>' + chatNameRole}
+                Text { text: '<b>lastMsgAuthorRole:</b>' + lastMsgAuthorRole}
+                Text { text: '<b>lastMsgDateRole:' + lastMsgDateRole}
+                Text { text: '<b>lastMsgTextRole:' + lastMsgTextRole}
                 Rectangle {
                     color: "red"
                     height: 10
@@ -43,12 +48,11 @@ Item {
         }
     }
 
-
     ListView {
         id: listView
 
         anchors.fill: parent
-        model: testModel
+        model: chatsModel
         delegate: chatDelegate
         highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }
         focus: true

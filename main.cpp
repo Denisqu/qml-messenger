@@ -1,8 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+
 #include "chatsmodel.h"
-//#include "message.h"
+#include "chatmodel.h"
 
 // 1) Добавить модель из C++ в qml:
 // https://doc.qt.io/qt-5/qtquick-modelviewsdata-cppmodels.html
@@ -15,7 +16,14 @@
 
 // 04.08.23:
 // 1) Изменить message.h, чтобы он подходил под https://doc.qt.io/qt-5/qtqml-cppintegration-topic.html
-// 2)Отобразить данные в qml с помощью новых моделей
+
+// 05.08.23:
+// 0) Почитать про Qt Implicitly Sharing (https://doc.qt.io/qt-6/implicit-sharing.html) (+)
+// 1) Отобразить список чатов (+)
+// 2) Разобраться как в QML работать с моделями с вложенностью (-)
+// https://stackoverflow.com/questions/44747723/qt-qml-model-within-a-model-and-accesible-via-qml
+// 3) Отобразить сообщения из чатов в qml (-)
+
 
 int main(int argc, char *argv[])
 {
@@ -28,6 +36,7 @@ int main(int argc, char *argv[])
 
     // expose C++ objects to Qml:
     ChatsModel *chatsModel = new ChatsModel(&app);
+    chatsModel->fillModelWithTestData();
     engine.rootContext()->setContextProperty("chatsModel", chatsModel);
     //qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
     //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
