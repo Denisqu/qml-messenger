@@ -5,8 +5,7 @@
 https://doc.qt.io/qt-5/qtquick-modelviewsdata-cppmodels.html
 https://habr.com/ru/articles/302428/
 https://scythe-studio.com/en/blog/how-to-integrate-qml-and-c-expose-object-and-register-c-class-to-qml
-2. Добавить выбор чата через модель (selectionModel)
-3. Добавить отображение чата
+
 
 23.07.23:
 1. Нужно создать модель чата (+) и модель чатов (+)
