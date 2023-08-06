@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>ChatList.qml</file>
         <file>Chat.qml</file>
+        <file>ChatsDelegate.qml</file>
     </qresource>
 </RCC>
