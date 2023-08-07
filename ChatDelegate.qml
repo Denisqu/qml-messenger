@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 Item {
+    id: root
     required property string chatNameRole
     required property string msgAuthorRole
     required property string msgTextRole
@@ -12,6 +13,7 @@ Item {
 
     Column {
         height: childrenRect.height
+        width: parent.width
         Text {
             text: '<b>chatNameRole:</b>' + chatNameRole
         }
@@ -27,7 +29,7 @@ Item {
         Rectangle {
             color: "red"
             height: 10
-            width: parent.width
+            width: root.width
         }
     }
 }

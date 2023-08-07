@@ -21,7 +21,7 @@ Item {
         anchors.fill: parent
         delegate: ChatDelegate {}
         width: parent.width
-        highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }
-        focus: true
+        highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
+        focus: false
     }
 }

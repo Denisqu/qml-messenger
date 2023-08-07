@@ -7,10 +7,6 @@ Item {
 
     signal chatSelected(int index)
 
-    function updateHighlight(index) {
-
-    }
-
     ListView {
         id: listView
         anchors.fill: parent
@@ -19,10 +15,10 @@ Item {
         delegate: ChatsDelegate {
             Component.onCompleted: {
                 chatClicked.connect(root.chatSelected)
-                chatClicked.connect(function(index){listView.currentIndex = index})
+                chatClicked.connect((index) => {listView.currentIndex = index})
             }
         }
-        highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }
+        highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
         focus: true
     }
 
