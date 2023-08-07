@@ -29,6 +29,7 @@ public:
     virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     void fillModelWithTestData();
+    Q_INVOKABLE QVariant getChatModelByIndex(int index);
 
     // Q_INVOKABLE void add();
     // Q_INVOKABLE void addChat(const ChatModel&& chat);

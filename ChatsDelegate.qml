@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 Item {
     id: chatDelegateItem
@@ -15,6 +16,7 @@ Item {
     height: childrenRect.height
 
     Column {
+        width: parent.width
         height: childrenRect.height
         Text {
             text: '<b>chatNameRole:</b>' + chatNameRole
@@ -23,7 +25,7 @@ Item {
             text: '<b>lastMsgAuthorRole:</b>' + lastMsgAuthorRole
         }
         Text {
-            text: '<b>lastMsgDateRole:' + lastMsgDateRole
+            text: '<b>lastMsgDateRole:' + lastMsgDateRole.toLocaleDateString(Qt.locale("ru_RU"), Locale.ShortFormat)
         }
         Text {
             text: '<b>lastMsgTextRole:' + lastMsgTextRole
@@ -42,3 +44,4 @@ Item {
         }
     }
 }
+

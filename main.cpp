@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
                                          [chatsModelSingleton](QQmlEngine*, QJSEngine *) -> QObject * {
         return chatsModelSingleton;
     });
+    qRegisterMetaType<ChatModel*>("ChatModel*" );
     //qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
     //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
 

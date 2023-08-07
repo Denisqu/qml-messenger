@@ -30,9 +30,12 @@ https://het.as.utexas.edu/HET/Software/html/qmlevents.html
 
 
 07.08.23:
-1. Написать делегат ChatDelegate.qml (-)
-2. Написать Chat.qml компонент (-)
-3. Разобраться как в QML работать с моделями с вложенностью (-)
+1. Написать делегат ChatDelegate.qml (+)
+2. Написать Chat.qml компонент (+)
+3. Разобраться как в QML работать с моделями с вложенностью (+)
 https://stackoverflow.com/questions/44747723/qt-qml-model-within-a-model-and-accesible-via-qml
 https://stackoverflow.com/questions/51439714/qt-nested-model-views
-4. Отобразить сообщения из чатов в qml (-)
+4. Отобразить сообщения из чатов в qml (+)
+5. Исправить ошибки в выводе программы (-)
+5. Сделать красивый UI отображения чатов + чата (-)
+6. Отрефакторить весь код (-)

@@ -8,3 +8,20 @@ Rectangle {
     border.color: "black"
 }
 */
+
+Item {
+    id: root
+
+    function updateListViewModel(newModel) {
+        listView.model = newModel
+    }
+
+    ListView {
+        id: listView
+        anchors.fill: parent
+        delegate: ChatDelegate {}
+        width: parent.width
+        highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }
+        focus: true
+    }
+}

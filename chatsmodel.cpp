@@ -108,3 +108,8 @@ void ChatsModel::fillModelWithTestData()
     }
     endInsertRows();
 }
+
+QVariant ChatsModel::getChatModelByIndex(int index)
+{
+    return QVariant::fromValue(mChatModels[index]);
+}

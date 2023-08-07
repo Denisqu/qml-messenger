@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
-
+import org.denisque.Chats 1.0
 
 Window {
     visible: true
@@ -21,14 +21,18 @@ Window {
         }
 
         Chat {
+            id: chat
             Layout.fillHeight: true
             Layout.fillWidth: true
+            Layout.preferredWidth: 80
+            Layout.minimumWidth: 70
         }
 
         Connections {
             target: chatList
             function onChatSelected(index) {
                 console.log("chatSelected, index = " + index)
+                chat.updateListViewModel(ChatsModelSingleton.getChatModelByIndex(index))
             }
         }
     }

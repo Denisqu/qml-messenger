@@ -18,7 +18,6 @@ public:
         MsgDateRole
     };
     explicit ChatModel(const QString& chatName, QObject *parent = nullptr);
-    ChatModel(ChatModel&& other) = default;
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
