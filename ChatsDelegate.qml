@@ -5,7 +5,6 @@ Item {
 
     signal chatClicked(int index)
 
-    //property var modelData: model
     required property string chatNameRole
     required property string lastMsgTextRole
     required property date lastMsgDateRole

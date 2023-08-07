@@ -5,9 +5,7 @@ import org.denisque.Chats 1.0
 Item {
     id: root
 
-    function testFunction(index) {
-        console.log("testFunction: index = " + index)
-    }
+    signal chatSelected(int index)
 
     ListView {
         id: listView
@@ -15,7 +13,7 @@ Item {
         model: ChatsModelSingleton
         delegate: ChatsDelegate {
             Component.onCompleted: {
-                chatClicked.connect(root.testFunction)
+                chatClicked.connect(root.chatSelected)
             }
         }
         highlight: Rectangle { width: parent.width; color: "lightsteelblue"; radius: 3 }

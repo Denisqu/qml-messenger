@@ -13,6 +13,7 @@ Window {
         spacing: 0
 
         ChatList {
+            id: chatList
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.preferredWidth: 30
@@ -22,6 +23,13 @@ Window {
         Chat {
             Layout.fillHeight: true
             Layout.fillWidth: true
+        }
+
+        Connections {
+            target: chatList
+            function onChatSelected(index) {
+                console.log("chatSelected, index = " + index)
+            }
         }
     }
 }
