@@ -27,7 +27,12 @@ https://github.com/Furkanzmc/QML-Coding-Guide#ci-2-use-singleton-for-common-api-
  http://doc.crossplatform.ru/qt/4.3.5/model-view-selection.html, https://stackoverflow.com/questions/41566115/purpose-and-usage-of-itemselectionmodel-in-qml 
 4. Разобраться как работь с сигналами-слотами в QML (+)
 https://het.as.utexas.edu/HET/Software/html/qmlevents.html
-5. Разобраться как в QML работать с моделями с вложенностью (-)
+
+
+07.08.23:
+1. Написать делегат ChatDelegate.qml (-)
+2. Написать Chat.qml компонент (-)
+3. Разобраться как в QML работать с моделями с вложенностью (-)
 https://stackoverflow.com/questions/44747723/qt-qml-model-within-a-model-and-accesible-via-qml
 https://stackoverflow.com/questions/51439714/qt-nested-model-views
-6. Отобразить сообщения из чатов в qml (-)
+4. Отобразить сообщения из чатов в qml (-)
