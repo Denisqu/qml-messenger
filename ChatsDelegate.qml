@@ -13,15 +13,14 @@ Item {
     required property string lastMsgAuthorRole
     required property int index
 
-    //width: parent.width
     height: childrenRect.height
 
     RowLayout {
         width: root.width
 
         Rectangle {
-            Layout.preferredWidth: 30
             Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
             color: "dodgerblue"
             radius: 180
 
@@ -32,16 +31,24 @@ Item {
             Layout.fillHeight: true
             Text {
                 text: '<b>chatNameRole:</b>' + chatNameRole
+                elide: Text.ElideRight
+                Layout.fillWidth: true
             }
             Text {
                 text: '<b>lastMsgAuthorRole:</b>' + lastMsgAuthorRole
+                elide: Text.ElideRight
+                Layout.fillWidth: true
             }
             Text {
                 text: '<b>lastMsgDateRole:' + lastMsgDateRole.toLocaleDateString(
                           Qt.locale("ru_RU"), Locale.ShortFormat)
+                elide: Text.ElideRight
+                Layout.fillWidth: true
             }
             Text {
                 text: '<b>lastMsgTextRole:' + lastMsgTextRole
+                elide: Text.ElideRight
+                Layout.fillWidth: true
             }
             Rectangle {
                 color: "black"
@@ -57,4 +64,5 @@ Item {
             chatClicked(index)
         }
     }
+
 }
