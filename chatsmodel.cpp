@@ -1,6 +1,7 @@
 #include "chatsmodel.h"
 #include "chatmodel.h"
 #include "message.h"
+#include <QRandomGenerator>
 
 ChatsModel::ChatsModel(QObject *parent):
     QAbstractListModel(parent),
@@ -101,9 +102,13 @@ Qt::ItemFlags ChatsModel::flags(const QModelIndex &index) const
 void ChatsModel::fillModelWithTestData()
 {
     beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size() + 2);
-    for (int i = 1; i < 4; ++i) {
+    for (int i = 1; i < 10; ++i) {
+
         auto testModel = new ChatModel(QString("testChatModel#%1").arg(i));
-        testModel->addMessage(Message("Author", "MessageText", QDate(2023, i, 18)));
+        for (int j = 0; j < 10; ++j) {
+            auto message = tr("Hey! Look at this cool number: %1").arg(QRandomGenerator(i * j).generate());
+            testModel->addMessage(Message("Author", message, QDate(2023, i, 18)));
+        }
         mChatModels.push_back(testModel);
     }
     endInsertRows();

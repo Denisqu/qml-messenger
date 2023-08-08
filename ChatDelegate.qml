@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.15
 
 Item {
     id: root
@@ -11,25 +12,36 @@ Item {
     width: listView.width
     height: childrenRect.height
 
-    Column {
-        height: childrenRect.height
-        width: parent.width
-        Text {
-            text: '<b>chatNameRole:</b>' + chatNameRole
-        }
-        Text {
-            text: '<b>msgAuthorRole:</b>' + msgAuthorRole
-        }
-        Text {
-            text: '<b>msgDateRole:' + msgDateRole
-        }
-        Text {
-            text: '<b>msgTextRole:' + msgTextRole
-        }
+    RowLayout {
+
         Rectangle {
-            color: "blue"
-            height: 10
-            width: root.width
+            Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
+            color: "dodgerblue"
+            radius: 180
+
+        }
+
+        ColumnLayout {
+            height: childrenRect.height
+            width: parent.width
+            Text {
+                text: '<b>chatNameRole:</b>' + chatNameRole
+            }
+            Text {
+                text: '<b>msgAuthorRole:</b>' + msgAuthorRole
+            }
+            Text {
+                text: '<b>msgDateRole:' + msgDateRole
+            }
+            Text {
+                text: '<b>msgTextRole:' + msgTextRole
+            }
+            Rectangle {
+                color: "blue"
+                height: 10
+                width: root.width
+            }
         }
     }
 }

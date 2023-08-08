@@ -29,32 +29,34 @@ Item {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            RowLayout {
+                Text {
+                    text: '<b>'+chatNameRole+'<b>'
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                }
+                Text {
+                    text: lastMsgDateRole.toLocaleDateString(
+                              Qt.locale("ru_RU"), Locale.ShortFormat)
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
+                }
+            }
             Text {
-                text: '<b>chatNameRole:</b>' + chatNameRole
+                text: lastMsgTextRole
                 elide: Text.ElideRight
                 Layout.fillWidth: true
             }
-            Text {
-                text: '<b>lastMsgAuthorRole:</b>' + lastMsgAuthorRole
-                elide: Text.ElideRight
-                Layout.fillWidth: true
-            }
-            Text {
-                text: '<b>lastMsgDateRole:' + lastMsgDateRole.toLocaleDateString(
-                          Qt.locale("ru_RU"), Locale.ShortFormat)
-                elide: Text.ElideRight
-                Layout.fillWidth: true
-            }
-            Text {
-                text: '<b>lastMsgTextRole:' + lastMsgTextRole
-                elide: Text.ElideRight
-                Layout.fillWidth: true
-            }
+            /*
             Rectangle {
                 color: "black"
                 height: 10
                 Layout.fillWidth: true
             }
+            */
         }
     }
 
