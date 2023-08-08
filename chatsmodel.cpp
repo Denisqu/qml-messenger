@@ -104,7 +104,7 @@ void ChatsModel::fillModelWithTestData()
     beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size() + 2);
     for (int i = 1; i < 10; ++i) {
 
-        auto testModel = new ChatModel(QString("testChatModel#%1").arg(i));
+        auto testModel = new ChatModel(QString("testChatModel#%1").arg(i), this);
         for (int j = 0; j < 10; ++j) {
             auto message = tr("Hey! Look at this cool number: %1").arg(QRandomGenerator(i * j).generate());
             testModel->addMessage(Message("Author", message, QDate(2023, i, 18)));
