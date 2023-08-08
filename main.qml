@@ -16,16 +16,16 @@ Window {
             id: chatList
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredWidth: 30
-            Layout.minimumWidth: 20
+            Layout.preferredWidth: 20
+            Layout.minimumWidth: 10
         }
 
         Chat {
             id: chat
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.preferredWidth: 80
-            Layout.minimumWidth: 70
+            Layout.preferredWidth: 90
+            Layout.minimumWidth: 80
         }
 
         Connections {

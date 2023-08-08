@@ -6,6 +6,7 @@ Item {
     id: root
 
     signal chatSelected(int index)
+    //width: parent.width
 
     ListView {
         id: listView
@@ -13,6 +14,7 @@ Item {
         model: ChatsModelSingleton
         width: parent.width
         delegate: ChatsDelegate {
+            width: listView.parent.width
             Component.onCompleted: {
                 chatClicked.connect(root.chatSelected)
                 chatClicked.connect((index) => {listView.currentIndex = index})

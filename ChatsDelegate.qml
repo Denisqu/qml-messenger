@@ -13,7 +13,7 @@ Item {
     required property string lastMsgAuthorRole
     required property int index
 
-    width: listView.width
+    //width: parent.width
     height: childrenRect.height
 
     RowLayout {
@@ -44,7 +44,7 @@ Item {
                 text: '<b>lastMsgTextRole:' + lastMsgTextRole
             }
             Rectangle {
-                color: "red"
+                color: "black"
                 height: 10
                 Layout.fillWidth: true
             }

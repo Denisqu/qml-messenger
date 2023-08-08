@@ -27,7 +27,7 @@ Item {
             text: '<b>msgTextRole:' + msgTextRole
         }
         Rectangle {
-            color: "red"
+            color: "blue"
             height: 10
             width: root.width
         }
