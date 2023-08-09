@@ -50,13 +50,6 @@ Item {
                 elide: Text.ElideRight
                 Layout.fillWidth: true
             }
-            /*
-            Rectangle {
-                color: "black"
-                height: 10
-                Layout.fillWidth: true
-            }
-            */
         }
     }
 

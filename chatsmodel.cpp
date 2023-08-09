@@ -102,7 +102,7 @@ Qt::ItemFlags ChatsModel::flags(const QModelIndex &index) const
 void ChatsModel::fillModelWithTestData()
 {
     beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size() + 2);
-    for (int i = 1; i < 10; ++i) {
+    for (int i = 1; i < 12; ++i) {
 
         auto testModel = new ChatModel(QString("testChatModel#%1").arg(i), this);
         for (int j = 0; j < 10; ++j) {

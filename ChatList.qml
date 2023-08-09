@@ -23,6 +23,8 @@ Item {
         highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
         focus: true
         spacing: 25
+        clip: true
+
     }
 
     ItemSelectionModel {

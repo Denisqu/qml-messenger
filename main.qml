@@ -7,19 +7,31 @@ Window {
     visible: true
     height: 600
     width: 900
+    minimumHeight: 600
+    minimumWidth: 900
 
     RowLayout {
         anchors.fill: parent
         spacing: 0
 
-        ChatList {
-            id: chatList
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+        ColumnLayout {
+            Layout.topMargin: 10
             Layout.preferredWidth: 30
             Layout.minimumWidth: 20
-            Layout.leftMargin: 5
 
+            SearchBar {
+                Layout.leftMargin: 5
+                Layout.preferredHeight: childrenRect.height
+                Layout.fillWidth: true
+            }
+
+            ChatList {
+                id: chatList
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.leftMargin: 5
+                Layout.preferredHeight: 99
+            }
         }
 
         Chat {
@@ -35,9 +47,9 @@ Window {
             target: chatList
             function onChatSelected(index) {
                 console.log("chatSelected, index = " + index)
-                chat.updateListViewModel(ChatsModelSingleton.getChatModelByIndex(index))
+                chat.updateListViewModel(
+                            ChatsModelSingleton.getChatModelByIndex(index))
             }
         }
     }
 }
-
