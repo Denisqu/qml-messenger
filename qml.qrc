@@ -6,5 +6,6 @@
         <file>ChatsDelegate.qml</file>
         <file>ChatDelegate.qml</file>
         <file>SearchBar.qml</file>
+        <file>SendMessageBar.qml</file>
     </qresource>
 </RCC>

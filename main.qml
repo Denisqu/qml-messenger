@@ -34,13 +34,16 @@ Window {
             }
         }
 
-        Chat {
-            id: chat
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.preferredWidth: 90
-            Layout.minimumWidth: 70
-            Layout.leftMargin: 5
+        ColumnLayout {
+            Chat {
+                id: chat
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.preferredWidth: 90
+                Layout.minimumWidth: 70
+                Layout.leftMargin: 5
+            }
+            SendMessageBar {}
         }
 
         Connections {

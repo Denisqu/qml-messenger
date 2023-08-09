@@ -22,5 +22,6 @@ Item {
         delegate: ChatDelegate {}
         width: parent.width
         spacing: 10
+        clip: true
     }
 }
