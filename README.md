@@ -43,11 +43,12 @@ https://stackoverflow.com/questions/51439714/qt-nested-model-views
 2. Ошибка read-access-violation когда прыгаю по разным чатам (+)
 https://embeddeduse.com/2018/04/02/qml-engine-deletes-c-objects-still-in-use/
 
-09.09.23:
+09.08.23:
 1. Пофиксить наезжание ChatList на ScrollBar (+)
 https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolling
 2. Добавить компонент с поиском по чатам как в Telegram (+)
-3. Добавить компонент с отправкой сообщений как в Telegram (-)
-4. Добавить геометрическую фигуру на фоне сообщения в чате как в Telegram (-)
-5. Добавить фон в сообщения чатов (-)
 
+10.08.23
+1. Добавить компонент с отправкой сообщений как в Telegram (-)
+2. Добавить геометрическую фигуру на фоне сообщения в чате как в Telegram (+)
+3. Добавить фон в сообщения чатов (-)

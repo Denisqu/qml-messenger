@@ -13,34 +13,35 @@ Item {
     height: childrenRect.height
 
     RowLayout {
-
+        id: rowLayout
         Rectangle {
             Layout.preferredHeight: 30
             Layout.preferredWidth: 30
             color: "dodgerblue"
             radius: 180
-
         }
-
-        ColumnLayout {
-            height: childrenRect.height
-            width: parent.width
-            Text {
-                text: '<b>chatNameRole:</b>' + chatNameRole
-            }
-            Text {
-                text: '<b>msgAuthorRole:</b>' + msgAuthorRole
-            }
-            Text {
-                text: '<b>msgDateRole:' + msgDateRole
-            }
-            Text {
-                text: '<b>msgTextRole:' + msgTextRole
-            }
-            Rectangle {
-                color: "blue"
-                height: 10
-                width: root.width
+        Rectangle {
+            color: "white"
+            border.width: 1
+            border.color: "black"
+            radius: 15
+            width: childrenRect.width + 25
+            height: childrenRect.height + 20
+            ColumnLayout {
+                id: columnLayout
+                anchors.centerIn: parent
+                Text {
+                    text: '<b>chatNameRole:</b>' + chatNameRole
+                }
+                Text {
+                    text: '<b>msgAuthorRole:</b>' + msgAuthorRole
+                }
+                Text {
+                    text: '<b>msgDateRole:' + msgDateRole
+                }
+                Text {
+                    text: '<b>msgTextRole:' + msgTextRole
+                }
             }
         }
     }

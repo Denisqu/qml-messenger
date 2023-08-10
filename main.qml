@@ -43,7 +43,10 @@ Window {
                 Layout.minimumWidth: 70
                 Layout.leftMargin: 5
             }
-            SendMessageBar {}
+            SendMessageBar {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 40
+            }
         }
 
         Connections {
