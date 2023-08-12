@@ -7,5 +7,6 @@
         <file>ChatDelegate.qml</file>
         <file>SearchBar.qml</file>
         <file>SendMessageBar.qml</file>
+        <file>color_constants.js</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 import org.denisque.Chats 1.0
+import "color_constants.js" as Colors
 
 Window {
     visible: true
@@ -9,6 +10,7 @@ Window {
     width: 900
     minimumHeight: 600
     minimumWidth: 900
+
 
     RowLayout {
         anchors.fill: parent
@@ -20,18 +22,24 @@ Window {
             Layout.minimumWidth: 20
 
             SearchBar {
-                Layout.leftMargin: 5
                 Layout.preferredHeight: childrenRect.height
                 Layout.fillWidth: true
+                Layout.leftMargin: 4
+                Layout.rightMargin: 4
             }
 
             ChatList {
                 id: chatList
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.leftMargin: 5
                 Layout.preferredHeight: 99
             }
+        }
+
+        Rectangle {
+            Layout.fillHeight: true
+            width: 0.5
+            color: Colors.borderColor
         }
 
         ColumnLayout {

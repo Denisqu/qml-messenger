@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import "color_constants.js" as Colors
 
 Item {
     id: root
@@ -7,7 +8,7 @@ Item {
     Rectangle {
         color: "white"
         border.width: 1
-        border.color: "grey"
+        border.color: Colors.borderColor
         radius: 180
         width: root.width
         height: 25

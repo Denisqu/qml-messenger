@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "color_constants.js" as Colors
 
 Item {
     id: root
@@ -6,8 +7,9 @@ Item {
 
     Rectangle {
         color: "white"
-        border.width: 1
-        border.color: "grey"
+        border.width: 0.5
+        border.color: Colors.borderColor
+        opacity: 1
         width: root.width
         height: root.height
 
@@ -22,7 +24,7 @@ Item {
             anchors.leftMargin: 10
             anchors.rightMargin: 5
             clip: true
-            //anchors.centerIn: parent
+            opacity: 1
         }
     }
 
