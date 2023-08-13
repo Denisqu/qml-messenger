@@ -13,6 +13,14 @@ Item {
         anchors.fill: parent
         model: ChatsModelSingleton
         width: parent.width
+        focus: true
+        spacing: 25
+        clip: true
+        footer: Rectangle {
+            color: "transparent"
+            height: 25
+        }
+        highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
         delegate: ChatsDelegate {
             width: listView.parent.width
             Component.onCompleted: {
@@ -20,11 +28,6 @@ Item {
                 chatClicked.connect((index) => {listView.currentIndex = index})
             }
         }
-        highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
-        focus: true
-        spacing: 25
-        clip: true
-
     }
 
     ItemSelectionModel {

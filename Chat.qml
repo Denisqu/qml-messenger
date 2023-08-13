@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "color_constants.js" as Colors
 
 /*
 Rectangle {
@@ -8,7 +9,6 @@ Rectangle {
     border.color: "black"
 }
 */
-
 Item {
     id: root
 
@@ -16,12 +16,37 @@ Item {
         listView.model = newModel
     }
 
-    ListView {
-        id: listView
+    Rectangle {
         anchors.fill: parent
-        delegate: ChatDelegate {}
-        width: parent.width
-        spacing: 10
-        clip: true
+        //rotation: 90
+        gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: Colors.gradientColorFirst
+            }
+            GradientStop {
+                position: 1.0
+                color: Colors.gradientColorSecond
+            }
+        }
+
+        ListView {
+            id: listView
+            anchors.fill: parent
+            delegate: ChatDelegate {}
+            width: parent.width
+            spacing: 10
+            clip: true
+
+            footer: Rectangle {
+                color: "transparent"
+                height: 20
+            }
+
+            header: Rectangle {
+                color: "transparent"
+                height: 10
+            }
+        }
     }
 }

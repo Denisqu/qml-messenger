@@ -23,13 +23,14 @@ Item {
             Layout.preferredWidth: 30
             color: "dodgerblue"
             radius: 180
-
+            Layout.leftMargin: 5
         }
 
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
             RowLayout {
+                Layout.rightMargin: 10
                 Text {
                     text: '<b>'+chatNameRole+'<b>'
                     elide: Text.ElideRight
@@ -49,6 +50,7 @@ Item {
                 text: lastMsgTextRole
                 elide: Text.ElideRight
                 Layout.fillWidth: true
+                Layout.rightMargin: 10
             }
         }
     }

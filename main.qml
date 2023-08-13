@@ -4,6 +4,16 @@ import QtQuick.Layouts 1.15
 import org.denisque.Chats 1.0
 import "color_constants.js" as Colors
 
+/* DebugRect:
+
+                Rectangle {
+                    color: "transparent"
+                    border.color: "red"
+                    anchors.fill: parent
+                }
+
+*/
+
 Window {
     visible: true
     height: 600
@@ -11,15 +21,14 @@ Window {
     minimumHeight: 600
     minimumWidth: 900
 
-
     RowLayout {
         anchors.fill: parent
         spacing: 0
 
         ColumnLayout {
             Layout.topMargin: 10
-            Layout.preferredWidth: 30
-            Layout.minimumWidth: 20
+            Layout.preferredWidth: 25
+            Layout.maximumWidth: 250
 
             SearchBar {
                 Layout.preferredHeight: childrenRect.height
@@ -43,17 +52,17 @@ Window {
         }
 
         ColumnLayout {
+            spacing: 0
             Chat {
                 id: chat
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.preferredWidth: 90
                 Layout.minimumWidth: 70
-                Layout.leftMargin: 5
             }
             SendMessageBar {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 40
+                height: 50
             }
         }
 

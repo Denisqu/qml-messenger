@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import "color_constants.js" as Colors
 
+
 Item {
     id: root
     height: childrenRect.height
@@ -16,14 +17,23 @@ Item {
         TextInput {
             id: textInput
             text: 'Search'
+            color: Colors.notFocusedTextColor
             font.pointSize: 12
-            cursorVisible: true
+            cursorVisible: false
+            clip: true
             anchors.fill: parent
             anchors.topMargin: 4
             anchors.bottomMargin: 4
             anchors.leftMargin: 5
             anchors.rightMargin: 5
-            clip: true
+
+            onActiveFocusChanged: {
+                if (activeFocus) {
+                    textInput.color = Colors.focusedTextColor
+                } else {
+                    textInput.color = Colors.notFocusedTextColor
+                }
+            }
         }
     }
 

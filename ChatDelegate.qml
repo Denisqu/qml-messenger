@@ -17,6 +17,7 @@ Item {
         Rectangle {
             Layout.preferredHeight: 30
             Layout.preferredWidth: 30
+            Layout.leftMargin: 5
             color: "dodgerblue"
             radius: 180
         }
