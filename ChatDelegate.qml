@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.15
+import "color_constants.js" as Colors
 
 Item {
     id: root
@@ -24,24 +25,24 @@ Item {
         Rectangle {
             color: "white"
             border.width: 1
-            border.color: "black"
+            border.color: Colors.borderColor
             radius: 15
             width: childrenRect.width + 25
             height: childrenRect.height + 20
             ColumnLayout {
                 id: columnLayout
                 anchors.centerIn: parent
-                Text {
-                    text: '<b>chatNameRole:</b>' + chatNameRole
+                RowLayout {
+                    Text {
+                        text: '<b>' + msgAuthorRole + '</b>'
+                    }
+                    Text {
+                        text: msgDateRole.toLocaleString(
+                                  Qt.locale("ru_RU"), Locale.ShortFormat)
+                    }
                 }
                 Text {
-                    text: '<b>msgAuthorRole:</b>' + msgAuthorRole
-                }
-                Text {
-                    text: '<b>msgDateRole:' + msgDateRole
-                }
-                Text {
-                    text: '<b>msgTextRole:' + msgTextRole
+                    text: msgTextRole
                 }
             }
         }
