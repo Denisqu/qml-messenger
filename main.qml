@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import org.denisque.Chats 1.0
 import "color_constants.js" as Colors
 
+
 /* DebugRect:
 
                 Rectangle {
@@ -13,7 +14,6 @@ import "color_constants.js" as Colors
                 }
 
 */
-
 Window {
     visible: true
     height: 600
@@ -31,10 +31,18 @@ Window {
             Layout.maximumWidth: 250
 
             SearchBar {
+                id: searchBar
                 Layout.preferredHeight: childrenRect.height
                 Layout.fillWidth: true
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
+
+                Connections {
+                    target: searchBar
+                    function onSearchTextChanged(value) {
+                        ChatsProxyModelSingleton.applyFilter(value)
+                    }
+                }
             }
 
             ChatList {
@@ -71,7 +79,7 @@ Window {
             function onChatSelected(index) {
                 console.log("chatSelected, index = " + index)
                 chat.updateListViewModel(
-                            ChatsModelSingleton.getChatModelByIndex(index))
+                            ChatsProxyModelSingleton.getChatModelByIndex(index))
             }
         }
     }

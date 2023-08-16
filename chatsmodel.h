@@ -12,7 +12,6 @@ class ChatsModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    // TODO: реализовать недостающие роли
     enum Roles {
         ChatNameRole = Qt::UserRole + 1,
         LastMsgAuthorRole,
@@ -37,6 +36,8 @@ public:
 private:
     // TODO: Здесь хранить лист моделей или сделать как-то по-другому???
     QVector<ChatModel*> mChatModels;
+
+    friend class ChatsProxyModel;
 };
 
 

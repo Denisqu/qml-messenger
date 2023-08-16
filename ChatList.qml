@@ -11,7 +11,7 @@ Item {
     ListView {
         id: listView
         anchors.fill: parent
-        model: ChatsModelSingleton
+        model: ChatsProxyModelSingleton
         width: parent.width
         focus: false
         spacing: 25
@@ -35,6 +35,6 @@ Item {
 
     ItemSelectionModel {
         id: chatListISM
-        model: ChatsModelSingleton
+        model: ChatsProxyModelSingleton
     }
 }

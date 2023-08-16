@@ -34,4 +34,6 @@ private:
 
 };
 
+//Q_DECLARE_METATYPE(ChatModel);
+
 #endif // CHAT_H

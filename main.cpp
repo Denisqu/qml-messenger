@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "chatsproxymodel.h"
 #include "chatsmodel.h"
 #include "chatmodel.h"
 
@@ -19,11 +20,16 @@ int main(int argc, char *argv[])
     // expose C++ objects to Qml:
     ChatsModel *chatsModelSingleton = new ChatsModel(&app);
     chatsModelSingleton->fillModelWithTestData();
-    qmlRegisterSingletonType<ChatsModel>("org.denisque.Chats", 1, 0, "ChatsModelSingleton",
-                                         [chatsModelSingleton](QQmlEngine*, QJSEngine *) -> QObject * {
-        return chatsModelSingleton;
+    ChatsProxyModel *chatsProxyModelSingleton = new ChatsProxyModel(&app);
+    chatsProxyModelSingleton->setSourceModel(chatsModelSingleton);
+    chatsProxyModelSingleton->setFilterRole(ChatModel::Roles::ChatNameRole);
+
+    qRegisterMetaType<ChatModel*>("ChatModel*");
+    qmlRegisterSingletonType<ChatsProxyModel>("org.denisque.Chats", 1, 0, "ChatsProxyModelSingleton",
+                                         [chatsProxyModelSingleton](QQmlEngine*, QJSEngine *) -> QObject * {
+        return chatsProxyModelSingleton;
     });
-    qRegisterMetaType<ChatModel*>("ChatModel*" );
+
     //qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
     //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
 

@@ -23,6 +23,7 @@ set(PROJECT_SOURCES
         chatsmodel.h chatsmodel.cpp
         chatmodel.h chatmodel.cpp
         message.h message.cpp
+        chatsproxymodel.h chatsproxymodel.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

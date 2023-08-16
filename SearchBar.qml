@@ -6,6 +6,8 @@ Item {
     id: root
     height: childrenRect.height
 
+    signal searchTextChanged(string value)
+
     Rectangle {
         color: "white"
         border.width: 1
@@ -34,6 +36,8 @@ Item {
                     textInput.color = Colors.notFocusedTextColor
                 }
             }
+
+            onTextEdited: root.searchTextChanged(textInput.text)
         }
     }
 
