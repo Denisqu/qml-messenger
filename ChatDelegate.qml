@@ -23,15 +23,19 @@ Item {
             radius: 180
         }
         Rectangle {
+            id: rectangle
             color: "white"
             border.width: 1
             border.color: Colors.borderColor
             radius: 15
             width: childrenRect.width + 25
             height: childrenRect.height + 20
+            //Layout.fillHeight: true
+            //Layout.fillWidth: true
             ColumnLayout {
                 id: columnLayout
                 anchors.centerIn: parent
+                //anchors.fill: parent
                 RowLayout {
                     Text {
                         text: '<b>' + msgAuthorRole + '</b>'
@@ -43,6 +47,8 @@ Item {
                 }
                 Text {
                     text: msgTextRole
+                    wrapMode: Text.WordWrap
+                    Layout.maximumWidth: root.width / 1.5
                 }
             }
         }

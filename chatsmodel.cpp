@@ -2,6 +2,8 @@
 #include "chatmodel.h"
 #include "message.h"
 #include <QRandomGenerator>
+#include <QFile>
+#include <QDebug>
 
 ChatsModel::ChatsModel(QObject *parent):
     QAbstractListModel(parent),
@@ -101,12 +103,40 @@ Qt::ItemFlags ChatsModel::flags(const QModelIndex &index) const
 
 void ChatsModel::fillModelWithTestData()
 {
+    QFile inputFile("./messages-test-data.txt");
+    if(!inputFile.open(QIODevice::ReadOnly)) {
+        qDebug() << inputFile.errorString();
+     }
+
+    QTextStream fin(&inputFile);
+    fin.setCodec("UTF-8");
+    QVector<QString> testWords{};
+
+    while(!fin.atEnd()) {
+
+        QString line = fin.readLine();
+        QStringList words = line.split(" ");
+        foreach(QString word, words){
+            qDebug() << word;
+            testWords.push_back(word);
+        }
+    }
+
+    inputFile.close();
+
+    int currentPointer = 0;
     beginInsertRows(QModelIndex(), mChatModels.size(), mChatModels.size() + 2);
     for (int i = 1; i < 12; ++i) {
-
         auto testModel = new ChatModel(QString("testChatModel#%1").arg(i), this);
-        for (int j = 0; j < 10; ++j) {
-            auto message = tr("Hey! Look at this cool number: %1").arg(QRandomGenerator(i * j).generate());
+        for (int j = 0; j < 15; ++j) {
+            //auto message = tr("Hey! Look at this cool number: %1").arg(QRandomGenerator(i * j).bounded(1, 20));
+            auto wordCount = QRandomGenerator(i * j).bounded(1, 50);
+            QString message = testWords[currentPointer];
+            for (int k = currentPointer + 1; k < currentPointer + wordCount; ++k) {
+                message += " " + testWords[k];
+            }
+            currentPointer += wordCount;
+            if (currentPointer + 100 > testWords.count()) currentPointer = 0;
             testModel->addMessage(Message("Author", message, QDate(2023, i, 18)));
         }
         mChatModels.push_back(testModel);

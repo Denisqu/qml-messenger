@@ -18,7 +18,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        //rotation: 90
+
         gradient: Gradient {
             GradientStop {
                 position: 0.0

@@ -13,7 +13,7 @@ Item {
         anchors.fill: parent
         model: ChatsModelSingleton
         width: parent.width
-        focus: true
+        focus: false
         spacing: 25
         clip: true
         footer: Rectangle {
@@ -25,7 +25,10 @@ Item {
             width: listView.parent.width
             Component.onCompleted: {
                 chatClicked.connect(root.chatSelected)
-                chatClicked.connect((index) => {listView.currentIndex = index})
+                chatClicked.connect((index) => {
+                                        listView.currentIndex = index
+                                        listView.focus = true
+                                    })
             }
         }
     }
