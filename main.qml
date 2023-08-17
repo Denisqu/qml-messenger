@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
 import org.denisque.Chats 1.0
+import QtQml.Models 2.15
 import "color_constants.js" as Colors
 
 
@@ -61,6 +62,12 @@ Window {
 
         ColumnLayout {
             spacing: 0
+            ChatStatusBar {
+                id: chatStatusBar
+                Layout.fillWidth: true
+                height: childrenRect.height
+            }
+
             Chat {
                 id: chat
                 Layout.fillHeight: true
@@ -77,10 +84,15 @@ Window {
         Connections {
             target: chatList
             function onChatSelected(index) {
-                console.log("chatSelected, index = " + index)
                 chat.updateListViewModel(
                             ChatsProxyModelSingleton.getChatModelByIndex(index))
             }
+        }
+
+        // TODO: разобраться с ism
+        ItemSelectionModel {
+            id: ism
+            model: lm
         }
     }
 }

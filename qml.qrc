@@ -8,5 +8,6 @@
         <file>SearchBar.qml</file>
         <file>SendMessageBar.qml</file>
         <file>color_constants.js</file>
+        <file>ChatStatusBar.qml</file>
     </qresource>
 </RCC>
