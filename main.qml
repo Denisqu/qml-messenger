@@ -92,7 +92,7 @@ Window {
         // TODO: разобраться с ism
         ItemSelectionModel {
             id: ism
-            model: lm
+            model: ChatsProxyModelSingleton
         }
     }
 }

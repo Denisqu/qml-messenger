@@ -71,7 +71,7 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 
 17.08.23
 1. Добавить статус-бар для выбранного чата, как в телеграмм (-)
-1. Добавить SelectionModel для chatList и chatStatusBar (-)
+1. Добавить поле currentlySelectedChat с байндингом в chatsmodel.cpp (-)
 1. Добавить иконку-кнопку для статус бара с поиском (-)
 1. Добавить поиск по загруженным локально сообщениям, написать прокси-модель (-)
 1. Убрать мелкие недостатки в UI (-)

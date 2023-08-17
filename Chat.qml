@@ -16,6 +16,8 @@ Item {
         listView.model = newModel
     }
 
+
+
     Rectangle {
         anchors.fill: parent
 

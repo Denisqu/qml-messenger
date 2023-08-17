@@ -7,9 +7,10 @@ Item {
     property string chatName
     property date lastMsgDate
 
-    function updateChatStatusBarModel(model) {
-        root.chatName = chatName
-        root.lastMsgDate = lastMsgDate
+
+    // TODO: что здесь писать???
+    function updateChatStatusBarModel(newModel) {
+        model = newModel
     }
 
     ColumnLayout {
