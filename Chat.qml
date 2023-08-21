@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import "color_constants.js" as Colors
+import org.denisque.Chats 1.0
 
 /*
 Rectangle {
@@ -34,6 +35,7 @@ Item {
 
         ListView {
             id: listView
+            model: ChatsProxyModelSingleton.currentlySelectedModel
             anchors.fill: parent
             delegate: ChatDelegate {}
             width: parent.width

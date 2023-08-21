@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.15
 import "color_constants.js" as Colors
+import org.denisque.Chats 1.0
 
 Item {
     id: root
-    property string chatName
-    property date lastMsgDate
+    //property string chatName
+    //property date lastMsgDate
+    //property ChatModel chatModel: ChatsProxyModelSingleton.currentlySelectedModel
 
 
     // TODO: что здесь писать???
@@ -31,11 +33,12 @@ Item {
                 spacing: 0.5
                 Layout.leftMargin: 10
                 Text {
-                    text: chatName
+                    // TODO: убрать захардкоженные значения
+                    text: ChatsProxyModelSingleton.currentlySelectedModel.chatName
                     color: Colors.focusedTextColor
                 }
                 Text {
-                    text: lastMsgData
+                    text: "asdada"
                     color: Colors.notFocusedTextColor
                 }
             }

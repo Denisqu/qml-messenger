@@ -5,7 +5,7 @@
 #include "chatsproxymodel.h"
 #include "chatsmodel.h"
 #include "chatmodel.h"
-
+#include "message.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,12 +25,13 @@ int main(int argc, char *argv[])
     chatsProxyModelSingleton->setFilterRole(ChatModel::Roles::ChatNameRole);
 
     qRegisterMetaType<ChatModel*>("ChatModel*");
+    qRegisterMetaType<ChatsModel*>("ChatsModel*");
     qmlRegisterSingletonType<ChatsProxyModel>("org.denisque.Chats", 1, 0, "ChatsProxyModelSingleton",
                                          [chatsProxyModelSingleton](QQmlEngine*, QJSEngine *) -> QObject * {
         return chatsProxyModelSingleton;
     });
 
-    //qmlRegisterType<ChatModel>("ChatModule", 1, 0, "Chat");
+    qmlRegisterType<ChatModel>("org.denisque.Chats", 1, 0, "ChatModel");
     //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));

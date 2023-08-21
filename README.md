@@ -69,9 +69,12 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 3. Добавить многостроковый текст в сообщения чата (+)
 3. Добавить поиск по имени чатов, написать прокси-модель QSortFilterProxyModel https://doc.qt.io/qt-5/qsortfilterproxymodel.html (+)
 
-17.08.23
-1. Добавить статус-бар для выбранного чата, как в телеграмм (-)
-1. Добавить поле currentlySelectedChat с байндингом в chatsmodel.cpp (-)
+21.08.23
+1. Изучить пример MVC-архитектуры от Felgo: https://felgo.com/doc/felgo-appdemos-basicapp-example/, https://github.com/FelgoSDK/BasicApp-Example (+)
+2. Добавить поле currentlySelectedChat с байндингом в chatsproxymodel.cpp (+)
+
+22.08.23
+1. Доделать ChatStatusBar.qml и chatmodel.cpp (-)
 1. Добавить иконку-кнопку для статус бара с поиском (-)
 1. Добавить поиск по загруженным локально сообщениям, написать прокси-модель (-)
 1. Убрать мелкие недостатки в UI (-)
@@ -79,4 +82,4 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 3. Отрефакторить qml файлы (-)
 4. Отрефакторить C++ файлы (-)
 5. Посмотреть видео на темы: дизайн api для мессенджера, микросервисная архитектура (-)
-6. Начать разрабатывать API для мессенджера на FastAPI, используя протоколы из SS.L3 (ЗДЕСЬ БУДЕТ СПИСОК ПРОТОКОЛОВ) (-)
+6. Начать разрабатывать API для мессенджера на FastAPI, используя протоколы из SS.L3, SS.RDMP? (ЗДЕСЬ БУДЕТ СПИСОК ПРОТОКОЛОВ) (-)

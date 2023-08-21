@@ -25,6 +25,27 @@ void ChatModel::addMessage(const Message &&msg)
     // написать позже endInsertRows
 }
 
+const QDate &ChatModel::chatOwnerLastTimeOnline() const
+{
+    return mChatOwnerLastTimeOnline;
+}
+
+void ChatModel::setChatOwnerLastTimeOnline(const QDate &newChatOwnerLastTimeOnline)
+{
+    if (mChatOwnerLastTimeOnline == newChatOwnerLastTimeOnline)
+        return;
+    mChatOwnerLastTimeOnline = newChatOwnerLastTimeOnline;
+    emit chatOwnerLastTimeOnlineChanged();
+}
+
+void ChatModel::setChatName(const QString &newChatName)
+{
+    if (mChatName == newChatName)
+        return;
+    mChatName = newChatName;
+    emit chatNameChanged();
+}
+
 int ChatModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
@@ -97,3 +118,5 @@ Qt::ItemFlags ChatModel::flags(const QModelIndex &index) const
 
     return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
 }
+
+

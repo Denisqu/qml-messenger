@@ -62,12 +62,12 @@ Window {
 
         ColumnLayout {
             spacing: 0
+
             ChatStatusBar {
                 id: chatStatusBar
                 Layout.fillWidth: true
                 height: childrenRect.height
             }
-
             Chat {
                 id: chat
                 Layout.fillHeight: true
@@ -83,9 +83,13 @@ Window {
 
         Connections {
             target: chatList
-            function onChatSelected(index) {
+            /*function onChatSelected(index) {
                 chat.updateListViewModel(
                             ChatsProxyModelSingleton.getChatModelByIndex(index))
+            }*/
+            function onChatSelected(index) {
+                ChatsProxyModelSingleton.currentlySelectedModel = ChatsProxyModelSingleton.getChatModelByIndex(index)
+                console.log(ChatsProxyModelSingleton.currentlySelectedModel)
             }
         }
 
