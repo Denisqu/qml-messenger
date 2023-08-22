@@ -138,6 +138,7 @@ void ChatsModel::fillModelWithTestData()
             currentPointer += wordCount;
             if (currentPointer + 100 > testWords.count()) currentPointer = 0;
             testModel->addMessage(Message("Author", message, QDate(2023, i, 18)));
+            testModel->setChatOwnerLastTimeOnline(QDate(2023, i, 18));
         }
         mChatModels.push_back(testModel);
     }

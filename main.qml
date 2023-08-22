@@ -6,15 +6,7 @@ import QtQml.Models 2.15
 import "color_constants.js" as Colors
 
 
-/* DebugRect:
 
-                Rectangle {
-                    color: "transparent"
-                    border.color: "red"
-                    anchors.fill: parent
-                }
-
-*/
 Window {
     visible: true
     height: 600

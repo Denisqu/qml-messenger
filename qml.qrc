@@ -9,5 +9,7 @@
         <file>SendMessageBar.qml</file>
         <file>color_constants.js</file>
         <file>ChatStatusBar.qml</file>
+        <file>resources/svg-icons/icons8-search.svg</file>
+        <file>DebugRect.qml</file>
     </qresource>
 </RCC>

@@ -4,6 +4,7 @@
 ChatModel::ChatModel(const QString& chatName, QObject *parent)
     : QAbstractListModel{parent},
       mChatName(chatName),
+      mChatOwnerLastTimeOnline(),
       mMessages{}
 {}
 

@@ -74,8 +74,11 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 2. Добавить поле currentlySelectedChat с байндингом в chatsproxymodel.cpp (+)
 
 22.08.23
-1. Доделать ChatStatusBar.qml и chatmodel.cpp (-)
-1. Добавить иконку-кнопку для статус бара с поиском (-)
+1. Доделать ChatStatusBar.qml и chatmodel.cpp (+)
+1. Добавить набор svg иконок в приложение https://icons8.com/icon/set/interface-search/material-outlined (+)
+1. Добавить иконку-кнопку для статус бара с поиском (+)
+1. Сделать высоту ChatStatusBar побольше, центрировать дочерние элементы (-).
+1. Добавить простые hover, эффект пуша на кнопку поиска в чате (-) 
 1. Добавить поиск по загруженным локально сообщениям, написать прокси-модель (-)
 1. Убрать мелкие недостатки в UI (-)
 2. Убрать все binding-loop'ы (-)
