@@ -11,5 +11,6 @@
         <file>ChatStatusBar.qml</file>
         <file>resources/svg-icons/icons8-search.svg</file>
         <file>DebugRect.qml</file>
+        <file>IconButton.qml</file>
     </qresource>
 </RCC>
