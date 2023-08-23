@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
     });
 
     qmlRegisterType<ChatModel>("org.denisque.Chats", 1, 0, "ChatModel");
-    //qmlRegisterType<Message>("ChatModule", 1, 0, "Message");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

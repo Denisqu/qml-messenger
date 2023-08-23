@@ -7,11 +7,9 @@ import org.denisque.Chats 1.0
 
 Item {
     id: root
-    //property string chatName
-    //property date lastMsgDate
-    //property ChatModel chatModel: ChatsProxyModelSingleton.currentlySelectedModel
 
-    // TODO: что здесь писать???
+    property alias searchTextValue: searchBar.searchTextValue
+
     function updateChatStatusBarModel(newModel) {
         model = newModel
     }
@@ -41,6 +39,21 @@ Item {
 
             Item {
                 Layout.fillWidth: true
+                Layout.alignment: Qt.AlignRight
+                Layout.preferredHeight: childrenRect.height
+                SearchBar {
+                    id: searchBar
+                    height: childrenRect.height
+                    width: 100
+                    Layout.alignment: Qt.AlignRight
+                    anchors.right: parent.right
+                    anchors.rightMargin: 16
+                }
+            }
+
+            Item {
+                Layout.preferredWidth: childrenRect.width + 20
+                //Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight
                 Layout.preferredHeight: childrenRect.height
                 IconButton {

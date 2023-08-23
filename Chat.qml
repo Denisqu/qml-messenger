@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import "color_constants.js" as Colors
 import org.denisque.Chats 1.0
+import SortFilterProxyModel 0.2
 
 /*
 Rectangle {
@@ -12,6 +13,7 @@ Rectangle {
 */
 Item {
     id: root
+    required property string proxyModelPattern
 
     function updateListViewModel(newModel) {
         listView.model = newModel
@@ -35,7 +37,7 @@ Item {
 
         ListView {
             id: listView
-            model: ChatsProxyModelSingleton.currentlySelectedModel
+            model: chatProxyModel
             anchors.fill: parent
             delegate: ChatDelegate {}
             width: parent.width
@@ -50,6 +52,16 @@ Item {
             header: Rectangle {
                 color: "transparent"
                 height: 10
+            }
+        }
+
+        SortFilterProxyModel {
+            id: chatProxyModel
+            sourceModel: ChatsProxyModelSingleton.currentlySelectedModel
+            filters: RegExpFilter {
+                roleName: "msgTextRole"
+                pattern: proxyModelPattern
+                caseSensitivity: Qt.CaseInsensitive
             }
         }
     }

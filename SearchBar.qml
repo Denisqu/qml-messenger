@@ -6,6 +6,8 @@ Item {
     id: root
     height: childrenRect.height
 
+    property alias searchTextValue: textInput.text
+
     signal searchTextChanged(string value)
 
     Rectangle {

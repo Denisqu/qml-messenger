@@ -82,6 +82,8 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 1. Сделать высоту ChatStatusBar побольше, центрировать дочерние элементы (+)
 1. Добавить простые hover (+)
 1. Выделить кнопку-иконку в отдельный generic компонент (+)  
+1. Добавить в проект https://github.com/oKcerG/SortFilterProxyModel (+)
+1. Добавить всплывающий SearchBar для чата (-)
 1. Добавить поиск по загруженным локально сообщениям, написать прокси-модель (-)
 1. Убрать мелкие недостатки в UI (-)
 2. Убрать все binding-loop'ы (-)

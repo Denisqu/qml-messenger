@@ -17,6 +17,8 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/messages-test-data.txt
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick Svg)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick Svg)
 
+add_subdirectory(extern/SortFilterProxyModel)
+
 set(PROJECT_SOURCES
         main.cpp
         qml.qrc
@@ -24,6 +26,7 @@ set(PROJECT_SOURCES
         chatmodel.h chatmodel.cpp
         message.h message.cpp
         chatsproxymodel.h chatsproxymodel.cpp
+        $<TARGET_OBJECTS:SortFilterProxyModel>
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

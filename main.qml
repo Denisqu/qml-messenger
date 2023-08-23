@@ -66,6 +66,8 @@ Window {
                 Layout.fillWidth: true
                 Layout.preferredWidth: 90
                 Layout.minimumWidth: 70
+
+                proxyModelPattern: chatStatusBar.searchTextValue
             }
             SendMessageBar {
                 Layout.fillWidth: true
@@ -75,20 +77,11 @@ Window {
 
         Connections {
             target: chatList
-            /*function onChatSelected(index) {
-                chat.updateListViewModel(
-                            ChatsProxyModelSingleton.getChatModelByIndex(index))
-            }*/
+
             function onChatSelected(index) {
                 ChatsProxyModelSingleton.currentlySelectedModel = ChatsProxyModelSingleton.getChatModelByIndex(index)
                 console.log(ChatsProxyModelSingleton.currentlySelectedModel)
             }
-        }
-
-        // TODO: разобраться с ism
-        ItemSelectionModel {
-            id: ism
-            model: ChatsProxyModelSingleton
         }
     }
 }
