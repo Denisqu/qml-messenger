@@ -1,14 +1,40 @@
 import QtQuick 2.15
 import "color_constants.js" as Colors
 
-
 Item {
     id: root
     height: childrenRect.height
 
     property alias searchTextValue: textInput.text
+    property real maxWidth: 0
 
+    signal startRevealingAnimation()
+    signal startDisapperingAnimation()
     signal searchTextChanged(string value)
+
+    Component.onCompleted: {
+        barAnimation.stop()
+        maxWidth = root.width
+    }
+
+    Connections {
+        target: root
+        function onStartRevealingAnimation() {
+            barAnimation.resume()
+            barAnimation.running = true
+        }
+
+        function onStartDisapperingAnimation() {
+            barAnimation.start()
+        }
+    }
+
+    NumberAnimation on opacity {
+        id: barAnimation
+        from: 1
+        to: 0
+        duration: 1000
+    }
 
     Rectangle {
         color: "white"
@@ -42,6 +68,4 @@ Item {
             onTextEdited: root.searchTextChanged(textInput.text)
         }
     }
-
-
 }

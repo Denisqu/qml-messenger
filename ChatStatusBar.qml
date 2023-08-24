@@ -63,6 +63,11 @@ Item {
                     pathToSvgImage: "resources/svg-icons/icons8-search.svg"
                     notHoveredColor: Colors.notFocusedTextColor
                     hoveredColor: Colors.focusedTextColor
+
+                    onClicked: {
+                        searchBar.startRevealingAnimation()
+                        console.log("icon button clicked!!!!!!!")
+                    }
                 }
             }
         }

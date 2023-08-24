@@ -13,6 +13,7 @@ Button {
     checked: false
     height: 20
     width: 20
+
     Image {
         anchors.fill: parent
         id: btnImage
