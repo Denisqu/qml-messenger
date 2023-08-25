@@ -6,22 +6,32 @@ Item {
     height: childrenRect.height
 
     property alias searchTextValue: textInput.text
-    property real maxWidth: 0
+    property real maxWidth: width
+    property bool isRevealedByDefault: true
+    property bool isRevealed
 
     signal startRevealingAnimation()
     signal startDisapperingAnimation()
     signal searchTextChanged(string value)
 
     Component.onCompleted: {
+        root.isRevealed = root.isRevealedByDefault
+
+        if (!root.isRevealedByDefault)
+            root.opacity = 0
+
         barAnimation.stop()
-        maxWidth = root.width
+        root.maxWidth = width
     }
 
     Connections {
         target: root
         function onStartRevealingAnimation() {
-            barAnimation.resume()
-            barAnimation.running = true
+            if (barAnimation.running)
+                return
+
+            barAnimation.start()
+            root.isRevealed = !root.isRevealed
         }
 
         function onStartDisapperingAnimation() {
@@ -29,12 +39,27 @@ Item {
         }
     }
 
-    NumberAnimation on opacity {
+    ParallelAnimation {
         id: barAnimation
-        from: 1
-        to: 0
-        duration: 1000
+
+        NumberAnimation {
+            target: root
+            property: "width"
+            from: root.isRevealed ? maxWidth : 0
+            to: root.isRevealed ? 0 : maxWidth
+            duration: 1000
+        }
+
+        NumberAnimation {
+            target: root
+            property: "opacity"
+            from: root.isRevealed ? 1 : 0
+            to: root.isRevealed ? 0 : 1
+            duration: 1000
+        }
     }
+
+
 
     Rectangle {
         color: "white"
@@ -67,5 +92,7 @@ Item {
 
             onTextEdited: root.searchTextChanged(textInput.text)
         }
+
+
     }
 }

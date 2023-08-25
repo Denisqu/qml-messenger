@@ -48,6 +48,7 @@ Item {
                     Layout.alignment: Qt.AlignRight
                     anchors.right: parent.right
                     anchors.rightMargin: 16
+                    isRevealedByDefault: false
                 }
             }
 
