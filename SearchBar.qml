@@ -34,10 +34,6 @@ Item {
             barAnimation.start()
             root.isRevealed = !root.isRevealed
         }
-
-        function onStartDisapperingAnimation() {
-            barAnimation.start()
-        }
     }
 
     ParallelAnimation {
@@ -46,17 +42,19 @@ Item {
         NumberAnimation {
             target: root
             property: "width"
+            easing.type: Easing.InOutCubic
             from: root.isRevealed ? maxWidth : 0
             to: root.isRevealed ? 0 : maxWidth
-            duration: 1000
+            duration: 500
         }
 
         NumberAnimation {
             target: root
             property: "opacity"
+            easing: Easing.InOutQuad
             from: root.isRevealed ? 1 : 0
             to: root.isRevealed ? 0 : 1
-            duration: 1000
+            duration: 450
         }
     }
 

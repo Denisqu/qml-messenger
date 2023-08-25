@@ -19,7 +19,16 @@ Item {
         listView.model = newModel
     }
 
+    Component.onCompleted: {
+        listView.positionViewAtIndex(listView.count - 1, ListView.Visible)
+    }
 
+    Connections {
+        target: chatProxyModel
+        function onSourceModelChanged() {
+            listView.positionViewAtEnd()
+        }
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -53,6 +62,8 @@ Item {
                 color: "transparent"
                 height: 10
             }
+
+
         }
 
         SortFilterProxyModel {
@@ -63,6 +74,8 @@ Item {
                 pattern: proxyModelPattern
                 caseSensitivity: Qt.CaseInsensitive
             }
+
+
         }
     }
 }

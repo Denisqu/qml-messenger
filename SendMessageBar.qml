@@ -5,6 +5,8 @@ import "color_constants.js" as Colors
 Item {
     id: root
 
+    property string placeholderText: "Enter text..."
+
     //height: childrenRect.height
     ColumnLayout {
         width: root.width
@@ -20,7 +22,7 @@ Item {
 
         TextInput {
             id: textInput
-            text: 'Write a message...'
+            text: ""
             color: Colors.notFocusedTextColor
             font.pointSize: 10
             cursorVisible: false
@@ -39,6 +41,18 @@ Item {
                     textInput.color = Colors.notFocusedTextColor
                 }
             }
+
+            Text {
+                clip: true
+                anchors.fill: parent
+                font.pointSize: 10
+                text: root.placeholderText
+                color: Colors.notFocusedTextColor
+                visible: !textInput.text
+                         && !textInput.activeFocus
+            }
         }
+
+
     }
 }
