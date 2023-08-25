@@ -29,6 +29,7 @@ Window {
                 Layout.fillWidth: true
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
+                placeholderText: "Search"
 
                 Connections {
                     target: searchBar

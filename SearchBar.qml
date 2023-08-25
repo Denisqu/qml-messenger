@@ -5,13 +5,14 @@ Item {
     id: root
     height: childrenRect.height
 
+    property string placeholderText: "placeholderText"
     property alias searchTextValue: textInput.text
     property real maxWidth: width
     property bool isRevealedByDefault: true
     property bool isRevealed
 
-    signal startRevealingAnimation()
-    signal startDisapperingAnimation()
+    signal startRevealingAnimation
+    signal startDisapperingAnimation
     signal searchTextChanged(string value)
 
     Component.onCompleted: {
@@ -59,8 +60,6 @@ Item {
         }
     }
 
-
-
     Rectangle {
         color: "white"
         border.width: 1
@@ -71,7 +70,7 @@ Item {
 
         TextInput {
             id: textInput
-            text: 'Search'
+            text: ""
             color: Colors.notFocusedTextColor
             font.pointSize: 12
             cursorVisible: false
@@ -93,6 +92,18 @@ Item {
             onTextEdited: root.searchTextChanged(textInput.text)
         }
 
-
+        Text {
+            clip: true
+            anchors.fill: parent
+            anchors.topMargin: 4
+            anchors.bottomMargin: 4
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
+            font.pointSize: 10
+            text: root.placeholderText
+            color: Colors.notFocusedTextColor
+            visible: !textInput.text
+                     && !textInput.activeFocus
+        }
     }
 }

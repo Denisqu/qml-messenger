@@ -49,6 +49,7 @@ Item {
                     anchors.right: parent.right
                     anchors.rightMargin: 16
                     isRevealedByDefault: false
+                    placeholderText: "Search"
                 }
             }
 
