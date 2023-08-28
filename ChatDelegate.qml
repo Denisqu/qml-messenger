@@ -10,17 +10,45 @@ Item {
     required property date msgDateRole
     required property int index
 
-    width: listView.width
-    height: childrenRect.height
+    height: rowLayout.height
+    DebugRect {}
 
     RowLayout {
         id: rowLayout
+        width: root.width
+        spacing: 0
+
         Rectangle {
             Layout.preferredHeight: 30
             Layout.preferredWidth: 30
             Layout.leftMargin: 5
             color: "dodgerblue"
             radius: 180
+            DebugRect {}
+        }
+        Rectangle {
+            Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
+            Layout.leftMargin: 5
+            color: "dodgerblue"
+            radius: 180
+            DebugRect {}
+        }
+        Rectangle {
+            Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
+            Layout.leftMargin: 5
+            color: "dodgerblue"
+            radius: 180
+            DebugRect {}
+        }
+        Rectangle {
+            Layout.preferredHeight: 30
+            Layout.preferredWidth: 30
+            Layout.leftMargin: 5
+            color: "dodgerblue"
+            radius: 180
+            DebugRect {}
         }
         Rectangle {
             id: rectangle
@@ -28,14 +56,15 @@ Item {
             border.width: 1
             border.color: Colors.borderColor
             radius: 15
-            width: childrenRect.width + 25
-            height: childrenRect.height + 20
-            //Layout.fillHeight: true
-            //Layout.fillWidth: true
+            Layout.preferredWidth: columnLayout.width + 25
+            Layout.preferredHeight: columnLayout.height + 20
+            Layout.alignment: Qt.AlignLeft
+            DebugRect {}
+
             ColumnLayout {
                 id: columnLayout
                 anchors.centerIn: parent
-                //anchors.fill: parent
+
                 RowLayout {
                     Text {
                         text: '<b>' + msgAuthorRole + '</b>'
@@ -48,7 +77,7 @@ Item {
                 Text {
                     text: msgTextRole
                     wrapMode: Text.WordWrap
-                    Layout.maximumWidth: root.width / 1.5
+                    Layout.maximumWidth: root.width / 2
                 }
             }
         }

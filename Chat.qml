@@ -3,14 +3,6 @@ import "color_constants.js" as Colors
 import org.denisque.Chats 1.0
 import SortFilterProxyModel 0.2
 
-/*
-Rectangle {
-    width: 100
-    height: 100
-    color: "blue"
-    border.color: "black"
-}
-*/
 Item {
     id: root
     required property string proxyModelPattern
@@ -48,7 +40,9 @@ Item {
             id: listView
             model: chatProxyModel
             anchors.fill: parent
-            delegate: ChatDelegate {}
+            delegate: ChatDelegate {
+                width: listView.width
+            }
             width: parent.width
             spacing: 10
             clip: true
