@@ -6,7 +6,6 @@ Item {
     id: root
 
     signal chatSelected(int index)
-    //width: parent.width
 
     ListView {
         id: listView
@@ -19,6 +18,10 @@ Item {
         footer: Rectangle {
             color: "transparent"
             height: 25
+        }
+        header: Rectangle {
+            color: "transparent"
+            height: 5
         }
         highlight: Rectangle { width: listView.parent.width; color: "lightsteelblue"; radius: 3 }
         delegate: ChatsDelegate {

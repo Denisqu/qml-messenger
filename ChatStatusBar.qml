@@ -55,7 +55,6 @@ Item {
 
             Item {
                 Layout.preferredWidth: childrenRect.width + 20
-                //Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight
                 Layout.preferredHeight: childrenRect.height
                 IconButton {
@@ -68,14 +67,13 @@ Item {
 
                     onClicked: {
                         searchBar.startRevealingAnimation()
-                        console.log("icon button clicked!!!!!!!")
                     }
                 }
             }
         }
 
         Rectangle {
-            height: 0.5
+            height: 1
             Layout.fillWidth: true
             color: Colors.borderColor
         }

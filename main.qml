@@ -22,6 +22,7 @@ Window {
             Layout.topMargin: 10
             Layout.preferredWidth: 25
             Layout.maximumWidth: 250
+            spacing: 0
 
             SearchBar {
                 id: searchBar
@@ -29,6 +30,7 @@ Window {
                 Layout.fillWidth: true
                 Layout.leftMargin: 4
                 Layout.rightMargin: 4
+                Layout.bottomMargin: 5
                 placeholderText: "Search"
 
                 Connections {
@@ -37,6 +39,12 @@ Window {
                         ChatsProxyModelSingleton.applyFilter(value)
                     }
                 }
+            }
+
+            Rectangle {
+                Layout.fillWidth: true
+                height: 1
+                color: Colors.borderColor
             }
 
             ChatList {
@@ -49,7 +57,7 @@ Window {
 
         Rectangle {
             Layout.fillHeight: true
-            width: 0.5
+            width: 1
             color: Colors.borderColor
         }
 
@@ -81,7 +89,6 @@ Window {
 
             function onChatSelected(index) {
                 ChatsProxyModelSingleton.currentlySelectedModel = ChatsProxyModelSingleton.getChatModelByIndex(index)
-                console.log(ChatsProxyModelSingleton.currentlySelectedModel)
             }
         }
     }

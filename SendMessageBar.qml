@@ -7,7 +7,6 @@ Item {
 
     property string placeholderText: "Enter text..."
 
-    //height: childrenRect.height
     ColumnLayout {
         width: root.width
         height: root.height
@@ -17,7 +16,6 @@ Item {
             color: Colors.borderColor
             height: 0.5
             Layout.fillWidth: true
-            //Layout.fillHeight: true
         }
 
         TextInput {
