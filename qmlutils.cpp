@@ -1,6 +1,6 @@
 #include "qmlutils.h"
 #include <QTimer>
-#include <QJSValue>
+
 
 QmlUtils::QmlUtils(QObject* parent) : QObject(parent)
 {

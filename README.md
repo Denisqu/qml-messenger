@@ -95,7 +95,7 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 
 29.08.23
 1. Убрать все binding-loop'ы (+)
-1. Пролистывать чат к последнему сообщению (-)
+1. Пролистывать чат к последнему сообщению (+)
 1. Выровнять по высоте SearchBar в списке чатов и ChatStatusBar (-)
 1. Убрать мелкие недостатки в UI (-)
 3. Отрефакторить qml файлы (-)

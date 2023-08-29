@@ -2,15 +2,15 @@
 #define QMLUTILS_H
 
 #include <QObject>
-class QJSValue;
+#include <QJSValue>
 
-class QmlUtils : QObject
+class QmlUtils : public QObject
 {
     Q_OBJECT
 
 public:
     QmlUtils(QObject* parent = nullptr);
-    void singleShot(int msec, QJSValue callback);
+    Q_INVOKABLE void singleShot(int msec, QJSValue callback);
 };
 
 #endif // QMLUTILS_H

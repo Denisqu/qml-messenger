@@ -2,6 +2,7 @@ import QtQuick 2.0
 import "color_constants.js" as Colors
 import org.denisque.Chats 1.0
 import SortFilterProxyModel 0.2
+import org.denisque.QmlUtils 1.0;
 
 Item {
     id: root
@@ -11,13 +12,14 @@ Item {
         listView.model = newModel
     }
 
-
-
     Connections {
         target: chatProxyModel
         function onSourceModelChanged() {
-            //listView.positionViewAtEnd()
-            console.log("onSourceModelChanged triggered")
+            listView.opacity = 0
+            QmlUtils.singleShot(250, () => {
+                                    listView.positionViewAtEnd()
+                                    listView.opacity = 1
+                                })
         }
     }
 
@@ -55,13 +57,6 @@ Item {
                 color: "transparent"
                 height: 10
             }
-
-            Component.onCompleted: {
-                console.log("component completed!!!")
-                listView.positionViewAtEnd()
-            }
-
-
         }
 
         SortFilterProxyModel {
