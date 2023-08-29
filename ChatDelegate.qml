@@ -11,73 +11,58 @@ Item {
     required property int index
 
     height: rowLayout.height
-    DebugRect {}
 
+    //DebugRect {}
     RowLayout {
         id: rowLayout
         width: root.width
-        spacing: 0
+        spacing: 10
 
         Rectangle {
             Layout.preferredHeight: 30
             Layout.preferredWidth: 30
+            Layout.maximumHeight: 30
+            Layout.maximumWidth: 30
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.leftMargin: 5
             color: "dodgerblue"
             radius: 180
-            DebugRect {}
         }
-        Rectangle {
-            Layout.preferredHeight: 30
-            Layout.preferredWidth: 30
-            Layout.leftMargin: 5
-            color: "dodgerblue"
-            radius: 180
-            DebugRect {}
-        }
-        Rectangle {
-            Layout.preferredHeight: 30
-            Layout.preferredWidth: 30
-            Layout.leftMargin: 5
-            color: "dodgerblue"
-            radius: 180
-            DebugRect {}
-        }
-        Rectangle {
-            Layout.preferredHeight: 30
-            Layout.preferredWidth: 30
-            Layout.leftMargin: 5
-            color: "dodgerblue"
-            radius: 180
-            DebugRect {}
-        }
-        Rectangle {
-            id: rectangle
-            color: "white"
-            border.width: 1
-            border.color: Colors.borderColor
-            radius: 15
-            Layout.preferredWidth: columnLayout.width + 25
-            Layout.preferredHeight: columnLayout.height + 20
-            Layout.alignment: Qt.AlignLeft
-            DebugRect {}
+        Item {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.preferredHeight: rectangle.height
+            Layout.preferredWidth: rectangle.width
 
-            ColumnLayout {
-                id: columnLayout
-                anchors.centerIn: parent
+            Rectangle {
+                id: rectangle
+                color: "white"
+                border.width: 1
+                border.color: Colors.borderColor
+                radius: 15
+                width: columnLayout.width + 25
+                height: columnLayout.height + 20
+                anchors.left: parent.left
 
-                RowLayout {
-                    Text {
-                        text: '<b>' + msgAuthorRole + '</b>'
+                ColumnLayout {
+                    id: columnLayout
+                    anchors.centerIn: parent
+
+                    RowLayout {
+                        Text {
+                            text: '<b>' + msgAuthorRole + '</b>'
+                        }
+                        Text {
+                            text: msgDateRole.toLocaleString(
+                                      Qt.locale("ru_RU"), Locale.ShortFormat)
+                        }
                     }
                     Text {
-                        text: msgDateRole.toLocaleString(
-                                  Qt.locale("ru_RU"), Locale.ShortFormat)
+                        text: msgTextRole
+                        wrapMode: Text.WordWrap
+                        Layout.maximumWidth: root.width / 2
                     }
-                }
-                Text {
-                    text: msgTextRole
-                    wrapMode: Text.WordWrap
-                    Layout.maximumWidth: root.width / 2
                 }
             }
         }

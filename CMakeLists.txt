@@ -26,6 +26,7 @@ set(PROJECT_SOURCES
         chatmodel.h chatmodel.cpp
         message.h message.cpp
         chatsproxymodel.h chatsproxymodel.cpp
+        qmlutils.h qmlutils.cpp
         $<TARGET_OBJECTS:SortFilterProxyModel>
 )
 

@@ -93,8 +93,8 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
     2. Сбрасывается в "", если выбрать SearchBar в фокус (+)
 1. Добавить заглушку в SendMessagebar (+)
 
-28.08.23
-1. Убрать все binding-loop'ы (-)
+29.08.23
+1. Убрать все binding-loop'ы (+)
 1. Пролистывать чат к последнему сообщению (-)
 1. Выровнять по высоте SearchBar в списке чатов и ChatStatusBar (-)
 1. Убрать мелкие недостатки в UI (-)

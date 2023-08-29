@@ -11,14 +11,13 @@ Item {
         listView.model = newModel
     }
 
-    Component.onCompleted: {
-        listView.positionViewAtIndex(listView.count - 1, ListView.Visible)
-    }
+
 
     Connections {
         target: chatProxyModel
         function onSourceModelChanged() {
-            listView.positionViewAtEnd()
+            //listView.positionViewAtEnd()
+            console.log("onSourceModelChanged triggered")
         }
     }
 
@@ -55,6 +54,11 @@ Item {
             header: Rectangle {
                 color: "transparent"
                 height: 10
+            }
+
+            Component.onCompleted: {
+                console.log("component completed!!!")
+                listView.positionViewAtEnd()
             }
 
 
