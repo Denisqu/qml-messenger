@@ -98,7 +98,10 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
 1. Пролистывать чат к последнему сообщению (+)
 1. Пофиксить белые промежутки между компонентами, смотреть экранной лупой (+)
 1. Выровнять по высоте SearchBar в списке чатов и ChatStatusBar (+)
-2. Посмотреть видео на темы: дизайн api для мессенджера, микросервисная архитектура (-)
-3. Посмотреть видео по протоколам из SS.L3, SS.RDMP? (JSON-RPC 2.0, WebSocket, TCP/IP) (-)
+3. Посмотреть видео по протоколам из SS.L3, SS.RDMP? (JSON-RPC 2.0, WebSocket, TCP/IP) (+)
     1. https://www.youtube.com/watch?v=TxVriqBkqbM&ab_channel=AndreySozykin (+)
-    2. 
+
+30.08.23
+1. Разобраться как устроен JRPC на C++ Qt в СС (-)
+    1. https://www.jsonrpc.org/specification (-)
+
