@@ -102,6 +102,8 @@ https://forum.qt.io/topic/86744/content-going-above-of-my-listview-while-scrolli
     1. https://www.youtube.com/watch?v=TxVriqBkqbM&ab_channel=AndreySozykin (+)
 
 30.08.23
-1. Разобраться как устроен JRPC на C++ Qt в СС (-)
-    1. https://www.jsonrpc.org/specification (-)
+1. Разобраться как устроен JRPC на C++ Qt в СС (+)
+    1. https://www.jsonrpc.org/specification (+)
+2. Начать писать логику jrpc клиента как в ss.api-gateway (-)
+
 
